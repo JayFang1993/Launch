@@ -19,8 +19,16 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:22.2.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.JayFang1993:DropDownMenu:96d390f9c4'
 }

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:minHeight="96dp"
+    android:background="#ffffff"
+    android:layout_height="96dp">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/rl_me"
+        android:visibility="gone"
+        android:layout_height="fill_parent">
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon"
+            android:id="@+id/iv_icon"
+            android:layout_centerVertical="true"
+            android:layout_height="48dp" />
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="96dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="来一碗热干面"
+                android:id="@+id/tv_metitle"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="韵苑食堂"
+                    android:textSize="12sp"
+                    android:id="@+id/tv_me_shitang"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:textSize="16sp"
+                    android:src="@drawable/ic_arrow_back_orange"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="韵苑17栋"
+                    android:id="@+id/tv_me_sushe"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/rl_his"
+        android:layout_height="fill_parent">
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon"
+            android:layout_marginRight="16dp"
+            android:id="@+id/iv_his_icon"
+            android:layout_centerVertical="true"
+            android:layout_height="48dp" />
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_marginLeft="16dp"
+            android:layout_height="96dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="来一碗热干面"
+                android:id="@+id/tv_his_title"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="韵苑食堂"
+                    android:id="@+id/tv_his_shitang"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:textSize="16sp"
+                    android:src="@drawable/ic_arrow_back_orange"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="韵苑17栋"
+                    android:id="@+id/tv_his_sushe"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

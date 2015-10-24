@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Launch</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">带饭</string>
+    <string name="action_address">地址管理</string>
+    <string name="action_profile">个人信息</string>
+    <string name="action_order">历史订单</string>
+    <string name="action_setting">设置</string>
+    <string name="action_about">关于我们</string>
+    <string name="action_exit">注销</string>
 </resources>

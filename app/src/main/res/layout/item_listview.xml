@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:minHeight="96dp"
+    android:layout_height="96dp">
+
+    <ImageView
+        android:layout_width="54dp"
+        android:id="@+id/iv_icon"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon"
+        android:layout_marginLeft="16dp"
+        android:layout_height="54dp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_marginLeft="8dp"
+        android:layout_height="96dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="求一碗热干面"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginBottom="18dp"
+            android:layout_alignParentBottom="true"
+            android:text="韵苑食堂，11：00-12：00，韵苑17栋"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

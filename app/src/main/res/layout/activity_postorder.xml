@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:id="@+id/btn_send"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ic_send_white_24dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:text="今天的午餐"
+            android:textColor="#444444"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:text="我想吃红烧排骨"
+            android:id="@+id/et_title"
+            android:textColor="#222222"
+            android:background="@null"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_marginRight="18dp"
+            android:background="@color/primary"
+            android:layout_height="2dp" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:text="详情"
+            android:textColor="#444444"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_voice"
+                android:src="@drawable/ic_keyboard_voice_orange_24dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:text="红烧排骨，少放点垃辣椒..."
+                android:background="@null"
+                android:textColor="#222222"
+                android:id="@+id/et_detail"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_below="@id/et_detail"
+                android:layout_marginRight="24dp"
+                android:background="@color/primary"
+                android:layout_height="2dp" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:text="食堂"
+                    android:id="@+id/tv_shitang"
+                    android:textColor="#444444"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="54dp"
+                    android:background="@null"
+                    android:id="@+id/et_shitang"
+                    android:textColor="#999999"
+                    android:focusable="false"
+                    android:layout_below="@id/tv_shitang"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/iv_shitang"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_shitang"
+                    android:layout_marginRight="18dp"
+                    android:src="@drawable/ic_expand_more_24dp"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/et_shitang"
+                    android:layout_marginRight="18dp"
+                    android:background="@color/primary"
+                    android:layout_height="2dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:text="时间"
+                    android:id="@+id/tv_time"
+                    android:textColor="#444444"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="54dp"
+                    android:background="@null"
+                    android:textColor="#999999"
+                    android:id="@+id/et_time"
+                    android:focusable="false"
+                    android:layout_below="@id/tv_time"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_time"
+                    android:layout_marginRight="18dp"
+                    android:id="@+id/iv_time"
+                    android:src="@drawable/ic_expand_more_24dp"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/et_time"
+                    android:layout_marginRight="18dp"
+                    android:background="@color/primary"
+                    android:layout_height="2dp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="我在"
+                    android:textColor="#444444"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:text="沁苑10栋"
+                    android:id="@+id/et_des"
+                    android:background="@null"
+                    android:layout_marginRight="18dp"
+                    android:textColor="#222222"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/et_detail"
+                    android:layout_marginRight="18dp"
+                    android:background="@color/primary"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="电话"
+                    android:textColor="#444444"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:text="12345678901"
+                    android:background="@null"
+                    android:layout_marginRight="18dp"
+                    android:textColor="#222222"
+                    android:id="@+id/et_phone"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/et_detail"
+                    android:layout_marginRight="18dp"
+                    android:background="@color/primary"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:text="答谢"
+            android:textColor="#444444"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="fill_parent"
+                android:text="请喝咖啡"
+                android:background="@null"
+                android:textColor="#999999"
+                android:focusable="false"
+                android:id="@+id/et_award"
+                android:layout_marginRight="54dp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:id="@+id/iv_award"
+                android:src="@drawable/ic_expand_more_24dp"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_marginRight="18dp"
+            android:background="@color/primary"
+            android:layout_height="2dp" />
+    </LinearLayout>
+</android.support.design.widget.AppBarLayout>
