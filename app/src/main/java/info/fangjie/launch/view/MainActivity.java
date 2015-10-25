@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -37,9 +38,11 @@ import info.fangjie.launch.common.OrderOperation;
 import info.fangjie.launch.model.OrderInfo;
 import info.fangjie.launch.model.User;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
 
     private DrawerLayout drawerLayout;
+
+    private SwipeRefreshLayout swipeLayout;
 
     private ListView listView;
     private OrderAdapter adpter;
@@ -116,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        swipeLayout.setOnRefreshListener(this);
+
 
         mMenu=(DropDownMenu)findViewById(R.id.menu);
         mMenu.setmMenuCount(3);//Menu的个数
@@ -228,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
         {
             try {
                 JSONArray jsonDataArray = jsonData.getJSONArray("data");
+                orders.clear();
                 for (int i = 0; i < jsonDataArray.length(); i++)
                 {
                     JSONObject tmpData = jsonDataArray.getJSONObject(i);
@@ -239,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 adpter.notifyDataSetChanged();
-
+                swipeLayout.setRefreshing(false);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -267,5 +276,10 @@ public class MainActivity extends AppCompatActivity {
 
             return tmpInfo;
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        getData();
     }
 }
