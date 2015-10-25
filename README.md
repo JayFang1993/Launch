@@ -19,6 +19,4 @@ Hackathon Wuhan 2015 项目提交
 <img src="https://raw.githubusercontent.com/JayFang1993/Launch/master/screenshot/icon5.png" width="30%"/>
 <img src="https://raw.githubusercontent.com/JayFang1993/Launch/master/screenshot/icon6.png" width="30%"/>
 <img src="https://raw.githubusercontent.com/JayFang1993/Launch/master/screenshot/icon7.png" width="30%"/>
-<img src="https://raw.githubusercontent.com/JayFang1993/Launch/master/screenshot/icon8.png" width="30%"/>
-<img src="https://raw.githubusercontent.com/JayFang1993/Launch/master/screenshot/icon9.png" width="30%"/>
 
