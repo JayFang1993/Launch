@@ -19,7 +19,7 @@
 
     <ListView
         android:layout_width="fill_parent"
-        android:background="#eeeeee"
+        android:background="#cccccc"
         android:id="@+id/lv_history"
         android:layout_height="fill_parent"></ListView>
 </android.support.design.widget.AppBarLayout>

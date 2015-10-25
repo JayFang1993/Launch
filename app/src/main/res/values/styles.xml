@@ -28,9 +28,9 @@
     <color name="icons">#212121</color>
     <color name="divider">#B6B6B6</color>
 
-    <color name="menu_back">#dddddd</color>
+    <color name="menu_back">#efefef</color>
     <color name="menu_text">#333333</color>
-    <color name="menu_p_back">#eeeeee</color>
+    <color name="menu_p_back">#fefefe</color>
     <color name="menu_p_text">#555555</color>
 
     <color name="card_background">#ffffff</color>

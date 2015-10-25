@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">带饭</string>
+    <string name="app_name">咚咚带饭</string>
     <string name="action_address">地址管理</string>
     <string name="action_profile">个人信息</string>
     <string name="action_order">历史订单</string>

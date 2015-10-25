@@ -2,6 +2,8 @@ package info.fangjie.launch.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,19 +11,31 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.jayfang.dropdownmenu.DropDownMenu;
 import com.jayfang.dropdownmenu.OnMenuSelectedListener;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import info.fangjie.launch.R;
-import info.fangjie.launch.model.Order;
+import info.fangjie.launch.common.App;
+import info.fangjie.launch.common.CircleTransform;
+import info.fangjie.launch.common.OrderOperation;
+import info.fangjie.launch.model.OrderInfo;
+import info.fangjie.launch.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,15 +43,19 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     private OrderAdapter adpter;
-    private List<Order> orders;
+    private List<OrderInfo> orders=new ArrayList<>();
 
     private DropDownMenu mMenu;
 
-    final String[] strings=new String[]{"配送位置","性别","时间"};
+    private TextView userName;
+    private ImageView userIcon,gender;
+    final String[] strings=new String[]{"宿舍","性别","时间"};
 
-    final String[] arr1=new String[]{"韵苑","沁苑","紫松"};
+    final String[] arr1=new String[]{"宿舍","韵苑","沁苑","紫松"};
     final String[] arr2=new String[]{"性别","男","女"};
-    final String[] arr3=new String[]{"中午","晚上"};
+    final String[] arr3=new String[]{"时间","中午","晚上"};
+
+    private Handler mHandler ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getData();
+    }
+
     private void initToolbar() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,10 +85,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void initView(){
+
+        userName=(TextView)findViewById(R.id.username);
+        userIcon=(ImageView)findViewById(R.id.avatar);
+        gender=(ImageView)findViewById(R.id.iv_gender);
+
+        userName.setText((((App) getApplication()).username));
+        Picasso.with(this).load(User.getUserIconByName((((App) getApplication()).username))).
+                transform(new CircleTransform()).into(userIcon);
+
+        if (User.getUserSexByName((((App) getApplication()).username))==User.MALE){
+            gender.setImageResource(R.drawable.ic_gender_male);
+        }else{
+            gender.setImageResource(R.drawable.ic_gender_famale);
+        }
+
         ListView listView=(ListView)findViewById(R.id.listview);
-        adpter=new OrderAdapter(this,null);
+        adpter=new OrderAdapter(this,orders);
         listView.setAdapter(adpter);
 
 
@@ -72,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, OrderDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("order", orders.get(position));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -151,5 +192,80 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+
+    private void getData(){
+        mHandler=new mHandler();
+        OrderOperation orderOperation = new OrderOperation(mHandler);
+        orderOperation.getAll();
+    }
+
+    class mHandler extends Handler{
+
+        @Override
+        public void handleMessage(Message msg) {
+            JSONObject jsonData = (JSONObject)msg.obj;
+            int msgtype = 0;
+            try {
+                msgtype = jsonData.getInt("msgtype");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            switch (msgtype) {
+                case OrderOperation.MSG_GETALL:
+                    orders.clear();
+                    handleGetAll(jsonData);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        void handleGetAll(JSONObject jsonData)
+        {
+            try {
+                JSONArray jsonDataArray = jsonData.getJSONArray("data");
+                for (int i = 0; i < jsonDataArray.length(); i++)
+                {
+                    JSONObject tmpData = jsonDataArray.getJSONObject(i);
+
+                    Log.i("get all data:", tmpData.toString());
+
+                    OrderInfo tmpInfo = GetOrderInfoFromJson(tmpData);
+                    orders.add(tmpInfo);
+                }
+
+                adpter.notifyDataSetChanged();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        OrderInfo GetOrderInfoFromJson(JSONObject tmpData)
+        {
+            OrderInfo tmpInfo = new OrderInfo();
+
+            try {
+                tmpInfo.id = tmpData.getInt("id");
+                tmpInfo.title = tmpData.getString("title");
+                tmpInfo.info = tmpData.getString("info");
+                tmpInfo.time = tmpData.getString("time");
+                tmpInfo.canteen = tmpData.getString("canteen");
+                tmpInfo.dst = tmpData.getString("dst");
+                tmpInfo.tel = tmpData.getString("tel");
+                tmpInfo.pay = tmpData.getString("pay");
+                tmpInfo.status = tmpData.getInt("status");
+                tmpInfo.userfrom = tmpData.getString("userfrom");
+                tmpInfo.userto = tmpData.getString("userto");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return tmpInfo;
+        }
     }
 }

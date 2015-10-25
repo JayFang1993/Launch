@@ -51,9 +51,9 @@
 					<EditText
 						android:layout_height="wrap_content"
 						android:layout_width="fill_parent"
-						android:inputType="textPassword"
 						android:background="@null"
-						android:id="@+id/username"
+						android:textColor="#222222"
+						android:id="@+id/et_username"
 						android:layout_margin="2dp">
 					</EditText>
 					<ImageView
@@ -90,7 +90,8 @@
 						android:layout_width="fill_parent"
 						android:inputType="textPassword"
 						android:background="@null"
-						android:id="@+id/passwordET"
+						android:textColor="#222222"
+						android:id="@+id/et_pass"
 						android:layout_margin="2dp">
 					</EditText>
 					<ImageView

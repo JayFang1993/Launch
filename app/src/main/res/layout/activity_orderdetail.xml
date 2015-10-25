@@ -68,6 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:textSize="14sp"
+                    android:id="@+id/tv_sushe"
                     android:text="韵苑9栋"
                     android:textColor="#555555"
                     android:layout_toRightOf="@id/iv_sushe"
@@ -79,6 +80,7 @@
                     android:text="11:00-12:00"
                     android:layout_marginRight="16dp"
                     android:textSize="18sp"
+                    android:id="@+id/tv_time"
                     android:textColor="#fa9723"
                     android:layout_alignParentRight="true"
                     android:layout_height="wrap_content" />
@@ -96,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="14sp"
                 android:textColor="#555555"
+                android:id="@+id/tv_award"
                 android:text="可约一杯咖啡"
                 android:layout_toRightOf="@id/iv_baochou"
                 android:layout_marginLeft="4sp"
@@ -123,6 +126,7 @@
                     <ImageView
                         android:layout_width="48dp"
                         android:src="@drawable/icon"
+                        android:id="@+id/iv_icon1"
                         android:layout_height="48dp" />
                     <RelativeLayout
                         android:layout_width="fill_parent"
@@ -131,6 +135,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_marginLeft="8dp"
+                            android:id="@+id/tv_detail"
                             android:layout_width="wrap_content"
                             android:textSize="18sp"
                             android:text="不要葱、姜、蒜，放点酱油，O(∩_∩)O谢谢"
@@ -144,6 +149,7 @@
                     android:layout_marginLeft="12sp"
                     android:layout_marginRight="12sp"
                     android:layout_width="fill_parent"
+                    android:id="@+id/rl_talk2"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="48dp"
@@ -169,11 +175,13 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_marginTop="16dp"
+                    android:id="@+id/ll_talk3"
                     android:layout_marginLeft="12sp"
                     android:layout_marginRight="12sp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="48dp"
+                        android:id="@+id/iv_icon3"
                         android:src="@drawable/icon"
                         android:layout_height="48dp" />
                     <RelativeLayout
@@ -184,6 +192,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:textSize="18sp"
+                            android:id="@+id/tv_phone"
                             android:layout_marginLeft="8dp"
                             android:text="Call Me:1234567890"
                             android:layout_height="wrap_content" />
@@ -193,6 +202,7 @@
         </RelativeLayout>
         <Button
             android:layout_width="fill_parent"
+            android:id="@+id/btn_send"
             android:background="@drawable/ic_send"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="28dp"

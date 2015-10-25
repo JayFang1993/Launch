@@ -1,5 +1,6 @@
 package info.fangjie.launch.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,25 +15,27 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import info.fangjie.launch.R;
+import info.fangjie.launch.common.App;
 import info.fangjie.launch.common.CircleTransform;
-import info.fangjie.launch.model.Order;
+import info.fangjie.launch.model.OrderInfo;
+import info.fangjie.launch.model.User;
 
 /**
  * Created by FangJie on 15/10/24.
  */
 public class HistoryAdapter extends BaseAdapter {
 
-    private List<Order> orders;
+    private List<OrderInfo> orders;
     private Context context;
 
-    HistoryAdapter(Context context, List<Order> orders){
+    HistoryAdapter(Context context, List<OrderInfo> orders){
         this.orders=orders;
         this.context=context;
     }
 
     @Override
     public int getCount() {
-        return 8;
+        return orders.size();
     }
 
     @Override
@@ -65,16 +68,22 @@ public class HistoryAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder)convertView.getTag();
         }
-        if (position%2==0){
+
+        if (orders.get(position).userto.equals(((App)(((Activity)context).getApplication())).username)){
             holder.me.setVisibility(View.GONE);
             holder.his.setVisibility(View.VISIBLE);
-            Picasso.with(context).load(R.drawable.icon).transform(new CircleTransform()).into(holder.hisIcon);
+            holder.hisTitle.setText(orders.get(position).title);
+            holder.hisSushe.setText(orders.get(position).dst);
+            holder.hisShitang.setText(orders.get(position).canteen);
+            Picasso.with(context).load(User.getUserIconByName(orders.get(position).userfrom)).transform(new CircleTransform()).into(holder.hisIcon);
         }else {
             holder.his.setVisibility(View.GONE);
             holder.me.setVisibility(View.VISIBLE);
-            Picasso.with(context).load(R.drawable.icon).transform(new CircleTransform()).into(holder.meIcon);
+            holder.meTitle.setText(orders.get(position).title);
+            holder.meSushe.setText(orders.get(position).dst);
+            holder.meShitang.setText(orders.get(position).canteen);
+            Picasso.with(context).load(User.getUserIconByName(orders.get(position).userto)).transform(new CircleTransform()).into(holder.meIcon);
         }
-
         return convertView;
     }
 

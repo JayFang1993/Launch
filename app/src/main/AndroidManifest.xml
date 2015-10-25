@@ -4,12 +4,16 @@
 
     <application
         android:allowBackup="true"
+        android:name=".common.App"
         android:icon="@drawable/icon_72dp"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".view.LoginActivity"
             android:label="登录" >
+        </activity>
+        <activity android:name=".view.SplashActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -17,7 +21,7 @@
         </activity>
 
         <activity android:name=".view.MainActivity"
-            android:label="要饭"/>
+            android:label="咚咚带饭"/>
 
         <activity android:name=".view.HistoryActivity"
             android:label="历史订单"
@@ -27,6 +31,8 @@
 
         <activity android:name=".view.OrderDetailActivity"
             android:label="订单详情"/>
+
     </application>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>
